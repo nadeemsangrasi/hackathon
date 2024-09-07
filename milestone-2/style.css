@@ -1,0 +1,242 @@
+/* Reset box-sizing for all elements */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+}
+
+/* General container styles */
+.container,
+.container2 {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid #d1d8e0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  text-transform: capitalize;
+}
+
+/* Heading styles */
+.heading-primary {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #8e44ad;
+}
+.heading-2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #8e44ad;
+}
+
+/* Field Box styles */
+.fieldBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.fieldBox label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #2c3e50;
+}
+
+.fieldBox input,
+.fieldBox textarea {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #bdc3c7;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.fieldBox input:focus,
+.fieldBox textarea:focus {
+  border-color: #3498db;
+}
+
+/* Social link styles */
+#social {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #8e44ad;
+}
+
+/* Section styles */
+.section {
+  width: 50%;
+  padding: 20px;
+}
+
+/* Button styles */
+.btn,
+.addSkillsBtns button {
+  margin: 15px auto;
+  display: block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background-color: #8e44ad;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+.addSkillsBtns button:hover {
+  background-color: #9b59b6;
+}
+
+.addSkillsBtns {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Personal Side styles */
+.personalSide {
+  background-color: #2c3e50;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 16px 0;
+}
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.details {
+  text-align: center;
+}
+
+.details .name,
+.details .email,
+.details .phone,
+.details .address {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.social {
+  text-align: center;
+}
+
+.social a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: #f1c40f;
+}
+
+/* Professional Side styles */
+.professionalSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.professionalSide h1 {
+  font-size: 30px;
+  color: #2980b9;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.professionalSide p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  color: #34495e;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .container,
+  .container2 {
+    flex-direction: column;
+  }
+
+  .personalSide {
+    width: 100%;
+  }
+
+  .section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-primary {
+    font-size: 28px;
+  }
+
+  .fieldBox label {
+    font-size: 1rem;
+  }
+
+  .fieldBox input,
+  .fieldBox textarea {
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .addSkillsBtns button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .personalSide {
+    padding: 10px;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .professionalSide h1 {
+    font-size: 24px;
+  }
+  .addSkillsBtns {
+    display: block;
+  }
+}
