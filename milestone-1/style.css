@@ -1,0 +1,66 @@
+/* boiler code  */
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+/* styles.css */
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e9ecef; /
+}
+
+.container {
+  max-width: 800px;
+  margin: 46px auto;
+  background-color: #ebfbbe; 
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;=
+  border: 1px solid #dee2e6; 
+}
+
+header {
+  text-align: center;
+}
+
+section {
+  margin: 20px 0;
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  display: block;
+  padding: 6px 6px;
+  font-size: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#skills {
+  display: block;
+}
+
+#moreParagraph {
+  transition: all ease 0.5s;
+  display: none;
+}
