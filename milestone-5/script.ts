@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = personalDataObj.fullName
           ? personalDataObj.fullName.toLowerCase().replace(/\s+/g, "-")
           : "unknown";
-        const uniqueUrl = `http://example.com/${username}`;
+        const uniqueUrl = `https://hackathon-milestone-5-beta.vercel.app?username=${username}`;
 
         const container2HTML = `
         <div class="container2">
