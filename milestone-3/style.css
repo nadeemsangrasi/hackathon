@@ -145,7 +145,7 @@ body {
 .details .phone,
 .details .address {
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -157,7 +157,7 @@ body {
   display: block;
   color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   margin: 5px 0;
   transition: color 0.3s ease;
 }
@@ -165,7 +165,9 @@ body {
 .social a:hover {
   color: #f1c40f;
 }
-
+#skills {
+  width: 100%;
+}
 /* Professional Side styles */
 .professionalSide {
   flex: 1;
@@ -182,7 +184,7 @@ body {
 }
 
 .professionalSide p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   margin: 0;
   color: #34495e;
