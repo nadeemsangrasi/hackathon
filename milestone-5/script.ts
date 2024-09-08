@@ -89,6 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (allFieldsFilled) {
+        const username = personalDataObj.fullName
+          ? personalDataObj.fullName.toLowerCase().replace(/\s+/g, "-")
+          : "unknown";
+        const uniqueUrl = `http://example.com/${username}`;
+
         const container2HTML = `
         <div class="container2">
           <div class="personalSide">
@@ -217,6 +222,17 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
 
         document.body.innerHTML = container2HTML;
+
+        // Add the shareable URL section
+        const urlContainer = document.createElement("div");
+        urlContainer.classList.add("url-container");
+        urlContainer.innerHTML = `
+          <div class="shareable-url">
+            <p>Share this profile: <a href="${uniqueUrl}" target="_blank">${uniqueUrl}</a></p>
+          </div>
+        `;
+        document.body.appendChild(urlContainer);
+
         const downloadBtn = document.createElement("button");
         downloadBtn.textContent = "Download PDF";
         downloadBtn.id = "downloadPdfBtn";
@@ -228,54 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
             downloadBtn.style.display = "none";
           });
         }
-        // Add edit functionality
-        document.querySelectorAll(".editBtn").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            const button = e.target as HTMLButtonElement;
-            const parentDiv = button.parentElement as HTMLElement;
-            const para = parentDiv.querySelector(
-              ".para"
-            ) as HTMLParagraphElement | null;
-            const input = parentDiv.querySelector(
-              ".editable"
-            ) as HTMLInputElement | null;
-            const doneBtn = parentDiv.querySelector(
-              ".doneBtn"
-            ) as HTMLButtonElement | null;
-
-            if (input && para && doneBtn) {
-              para.style.display = "none";
-              input.style.display = "block";
-              doneBtn.style.display = "block";
-              input.readOnly = false;
-              input.focus();
-            }
-          });
-        });
-
-        document.querySelectorAll(".doneBtn").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            const button = e.target as HTMLButtonElement;
-            const parentDiv = button.parentElement as HTMLElement;
-            const para = parentDiv.querySelector(
-              ".para"
-            ) as HTMLParagraphElement | null;
-            const input = parentDiv.querySelector(
-              ".editable"
-            ) as HTMLInputElement | null;
-            const doneBtn = parentDiv.querySelector(
-              ".doneBtn"
-            ) as HTMLButtonElement | null;
-
-            if (input && para && doneBtn) {
-              para.textContent = input.value;
-              para.style.display = "block";
-              input.style.display = "none";
-              doneBtn.style.display = "none";
-              input.readOnly = true;
-            }
-          });
-        });
       }
     });
   }

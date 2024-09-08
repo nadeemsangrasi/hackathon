@@ -623,3 +623,19 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.url-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.shareable-url {
+  font-size: 18px;
+  color: #333;
+}
+.shareable-url a {
+  color: #007bff;
+  text-decoration: none;
+}
+.shareable-url a:hover {
+  text-decoration: underline;
+}
