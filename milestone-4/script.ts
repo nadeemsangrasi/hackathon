@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (addSkillBtn && additionalSkills) {
     addSkillBtn.addEventListener("click", () => {
+      console.log("clicked");
+
       const newSkillBox = document.createElement("div");
       newSkillBox.classList.add("fieldBox");
 
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (removeSkillBtn && additionalSkills) {
     removeSkillBtn.addEventListener("click", () => {
-      if (additionalSkills.children.length > 1) {
+      if (additionalSkills.children.length > 0) {
         additionalSkills.removeChild(
           additionalSkills.lastElementChild as HTMLElement
         );

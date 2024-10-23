@@ -3,63 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interactive Resume</title>
+    <title>Nadeem's Resume</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Nadeem Khan</h1>
-        <p>Frontend Developer</p>
-        <!-- <img src="profile.jpg" alt="Profile Picture" class="profile-pic" /> -->
-        <p>Contact: nadeemsangrasi903@.com</p>
-      </header>
+      <div class="sideBar">
+        <div class="profile">
+          <img src="/images/dummy-profile.png" alt="Profile Picture" />
+          <h2>Nadeem Khan</h2>
+          <p>Web Developer</p>
+        </div>
+        <div class="contactInfo">
+          <h3>CONTACT INFO</h3>
+          <p><i class="fas fa-phone"></i> 09123456789</p>
+          <p><i class="fas fa-envelope"></i> jsmith123@sample.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Address</p>
+          <p><i class="fas fa-calendar-alt"></i> Birth Day</p>
+        </div>
+        <div class="education">
+          <h3>EDUCATION</h3>
+          <ul>
+            <li>1996 - 2002 - Sample Elementary School</li>
+            <li>2002 - 2006 - Sample Secondary School</li>
+            <li>2006 - 2010 - BSIS - Sample State College</li>
+          </ul>
+        </div>
+        <div class="languages">
+          <h3>LANGUAGES</h3>
+          <ul>
+            <li>Tagalog</li>
+            <li>English</li>
+          </ul>
+        </div>
+      </div>
 
-      <section id="education">
-        <h2>Education</h2>
-        <ul>
-          <li>learning Applied generative ai enginnering</li>
-          <li>Diploma in Web Development</li>
-        </ul>
-      </section>
-      <section id="about">
-        <h1 class="aboutHeading">About me</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo
-          perferendis error expedita illum sequi accusamus labore voluptate
-          optio! Veniam, eum? Suscipit, corporis illo! Dignissimos molestias,
-          doloribus maiores qui ducimus voluptas.
-        </p>
-        <p id="moreParagraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
-          esse itaque doloribus, consectetur temporibus cum eveniet vel vero
-          tenetur possimus animi id, magnam alias enim quae dolores incidunt!
-          Dolore, laborum. Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Accusantium, velit neque? Nam et dolor iusto odio laborum ipsum
-          excepturi soluta!
-        </p>
-        <button id="toggleViewMore">view more</button>
-      </section>
-      <section>
-        <h2>Skills</h2>
-        <ul id="skills">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>React</li>
-          <li>Next.js</li>
-        </ul>
-      </section>
+      <div class="mainContent">
+        <div class="about">
+          <h3>ABOUT</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
+            dolor, sit amet consectetur adipisicing elit. Ipsa amet error Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+            temporibus beatae saepe quas id architecto itaque obcaecati,
+            voluptatibus aliquam voluptate dolor, adipisci eveniet aperiam quo.
+            Veritatis aliquam quae ullam eum!
+          </p>
+        </div>
+        <div class="experiences">
+          <h3>EXPERIENCES</h3>
+          <ul>
+            <li>2010 Internship @ IT Company Corp.</li>
+            <li>2010 - 2012 Junior Web Developer @ IT Company Corp.</li>
+            <li>2012 - 2019 Full-stack Web Dev @ IT Solutions</li>
+            <li>2019 - 2024 Senior Web Developer @ Sample Industries</li>
+          </ul>
+        </div>
+        <div class="skills">
+          <h3>PROFESSIONAL SKILLS</h3>
+          <ul id="visibleSkills">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
 
-      <section id="experience">
-        <h2>Work Experience</h2>
-        <ul>
-          <li>Frontend Developer at fiver</li>
-          <li>Web Developer at linkedin</li>
-        </ul>
-      </section>
+          <ul id="moreSkills" class="hiddenSkills">
+            <li>Next.js</li>
+            <li>React.js</li>
+            <li>TypeScript</li>
+          </ul>
+
+          <button id="toggleButton" class="toggleButton">More Skills</button>
+        </div>
+      </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

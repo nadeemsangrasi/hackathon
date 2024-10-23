@@ -1,15 +1,18 @@
-const toggleButton = document.getElementById("toggleViewMore")!;
-const paragraph = document.getElementById("moreParagraph")!;
-let toggle = true;
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("toggleButton")!;
+  const moreSkill = document.getElementById("moreSkills")!;
+  let toggle = true;
 
-toggleButton.addEventListener("click", () => {
-  if (toggle == true) {
-    paragraph.style.display = "block";
+  toggleButton.addEventListener("click", () => {
+    if (toggle == true) {
+      moreSkill.style.display = "block";
+      toggleButton.innerHTML = "Less Skills";
+      toggle = false;
+    } else {
+      moreSkill.style.display = "none";
+      toggleButton.innerHTML = "More Skills";
 
-    toggle = false;
-  } else {
-    paragraph.style.display = "none";
-
-    toggle = true;
-  }
+      toggle = true;
+    }
+  });
 });

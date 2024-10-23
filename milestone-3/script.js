@@ -1,16 +1,17 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", function () {
-    // Handling skill addition
-    var addSkillBtn = document.getElementById("addSkillBtn");
-    var removeSkillBtn = document.getElementById("removeSkillBtn");
-    var additionalSkills = document.getElementById("additionalSkills");
+    const addSkillBtn = document.getElementById("addSkillBtn");
+    const removeSkillBtn = document.getElementById("removeSkillBtn");
+    const additionalSkills = document.getElementById("additionalSkills");
     if (addSkillBtn && additionalSkills) {
-        addSkillBtn.addEventListener("click", function () {
-            var newSkillBox = document.createElement("div");
+        addSkillBtn.addEventListener("click", () => {
+            console.log("clicked");
+            const newSkillBox = document.createElement("div");
             newSkillBox.classList.add("fieldBox");
-            var newSkillLabel = document.createElement("label");
+            const newSkillLabel = document.createElement("label");
             newSkillLabel.textContent = "Additional Skill";
-            var newSkillInput = document.createElement("input");
-            newSkillInput.name = "additionalSkills";
+            const newSkillInput = document.createElement("input");
+            newSkillInput.name = "additionalSkill";
             newSkillInput.placeholder = "Enter additional skill";
             newSkillInput.required = true;
             newSkillBox.appendChild(newSkillLabel);
@@ -18,61 +19,109 @@ document.addEventListener("DOMContentLoaded", function () {
             additionalSkills.appendChild(newSkillBox);
         });
     }
-    // Handling skill removal
     if (removeSkillBtn && additionalSkills) {
-        removeSkillBtn.addEventListener("click", function () {
+        removeSkillBtn.addEventListener("click", () => {
             if (additionalSkills.children.length > 0) {
                 additionalSkills.removeChild(additionalSkills.lastElementChild);
             }
         });
     }
-    // Generating output
-    var generateBtn = document.getElementById("btn");
+    const generateBtn = document.getElementById("btn");
     if (generateBtn) {
-        generateBtn.addEventListener("click", function () {
-            var personalForm = document.getElementById("personalForm");
-            var professionalForm = document.getElementById("professionalForm");
-            var output = document.getElementById("output");
+        generateBtn.addEventListener("click", () => {
+            const personalForm = document.getElementById("personalForm");
+            const professionalForm = document.getElementById("professionalForm");
+            const output = document.getElementById("output");
             if (!personalForm || !professionalForm || !output) {
                 console.error("One or more elements not found.");
                 return;
             }
-            var personalDataObj = {};
-            var professionalDataObj = {};
-            var skills = [];
-            var personalData = new FormData(personalForm);
-            var professionalData = new FormData(professionalForm);
-            // Check if all required fields are filled
-            var allFieldsFilled = true;
-            personalData.forEach(function (value, key) {
+            const personalDataObj = {};
+            const professionalDataObj = {};
+            let skills = [];
+            const personalData = new FormData(personalForm);
+            const professionalData = new FormData(professionalForm);
+            let allFieldsFilled = true;
+            personalData.forEach((value, key) => {
                 if (!value) {
                     allFieldsFilled = false;
-                    alert("Please fill out the ".concat(key, " field."));
+                    alert(`Please fill out the ${key} field.`);
                 }
                 personalDataObj[key] = value;
             });
-            professionalData.forEach(function (value, key) {
+            professionalData.forEach((value, key) => {
                 if (!value) {
                     allFieldsFilled = false;
-                    alert("Please fill out the ".concat(key, " field."));
+                    alert(`Please fill out the ${key} field.`);
                 }
                 professionalDataObj[key] = value;
             });
-            // Handle skills separately
-            document
-                .querySelectorAll("#additionalSkills input")
-                .forEach(function (input) {
+            document.querySelectorAll("#additionalSkills input").forEach((input) => {
                 if (input.value) {
                     skills.push(input.value);
                 }
             });
-            console.log("Personal Data:", personalDataObj);
-            console.log("Professional Data:", professionalDataObj);
+            const initialSkills = professionalDataObj.skills
+                ? professionalDataObj.skills.split(",")
+                : [];
+            skills.unshift(...initialSkills);
             if (allFieldsFilled) {
-                document.body.innerHTML = "\n          <div class=\"container2\">\n            <div class=\"personalSide\">\n              <div class=\"profile\">\n                <img src=\"./images/dummy-profile.png\" alt=\"Profile Image\">  \n              </div>\n              <div class=\"details\">\n                <p class=\"name\">Name: ".concat(personalDataObj.fullName || "", "</p>\n                <p class=\"email\">Email: ").concat(personalDataObj.email || "", "</p>\n                <p class=\"phone\">Phone: ").concat(personalDataObj.phone || "", "</p>\n                <p class=\"address\">Address: ").concat(personalDataObj.address || "", "</p>\n              </div>\n              <div class=\"social\">\n                <a class=\"facebook\" href=\"").concat(personalDataObj.facebook || "#", "\">Facebook: ").concat(personalDataObj.facebook || "", "</a>\n                <a class=\"linkedin\" href=\"").concat(personalDataObj.linkedin || "#", "\">LinkedIn: ").concat(personalDataObj.linkedin || "", "</a>\n              </div>\n            </div>\n\n            <div class=\"professionalSide\">\n              <div>\n                <h1>Objective</h1>\n                <p>").concat(professionalDataObj.Objective || "", "</p>\n              </div>\n              <div>\n                <h1>Current Job</h1>\n                <p>").concat(professionalDataObj.currentJob || "", " at ").concat(professionalDataObj.company || "", "</p>\n              </div>\n              <div>\n                <h1>Experience</h1>\n                <p>").concat(professionalDataObj.experience || "", " years</p>\n              </div>\n              <div>\n                <h1>Skills</h1>\n                <p>").concat(skills.join(", "), "</p>\n              </div>\n              <div>\n                <h1>Education</h1>\n                <p>").concat(professionalDataObj.education || "Not provided", "</p>\n              </div>\n              <div>\n                <h1>Certifications</h1>\n                <p>").concat(professionalDataObj.certifications || "Not provided", "</p>\n              </div>\n            </div>\n          </div>");
+                document.body.innerHTML = `
+         <div class="container2">
+      <div class="sideBar">
+        <div class="profile">
+          <div class="profile">
+            <img src="/images/dummy-profile.png" alt="Profile Picture" />
+            <h2>${personalDataObj.fullName || ""}</h2>
+            <p>${professionalDataObj.currentJob || ""}</p>
+          </div>
+        </div>
+          <div class="contactInfo">
+          <h3>CONTACT INFO</h3>
+          <p><i class="fas fa-phone"></i>Phone: ${personalDataObj.phone || ""}</p>
+          <p><i class="fas fa-envelope"></i>Email: ${personalDataObj.email || ""}</p>
+          <p><i class="fas fa-map-marker-alt"></i>Address: ${personalDataObj.address || ""}</p>
+        </div>
+        <div class="social">
+          <h3>SOCIAL</h3>
+          <ul>
+            <li><a class="facebook" href="${personalDataObj.facebook || "#"}">Facebook: ${personalDataObj.facebook || ""}</a></li>
+            <li><a class="linkedin" href="${personalDataObj.linkedin || "#"}">LinkedIn: ${personalDataObj.linkedin || ""}</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="mainContent">
+        <div class="about">
+          <h3>Objective</h3>
+          <p>${professionalDataObj.Objective || ""}</p>
+        </div>
+       
+        <div>
+          <h3>Current Job</h3>
+          <p>${professionalDataObj.currentJob || ""} at ${professionalDataObj.company || ""}</p>
+        </div>
+        <div>
+          <h3>Experience</h3>
+          <p>${professionalDataObj.experience || ""} years</p>
+        </div>
+        <div>
+          <h3>Skills</h3>
+          <p>${skills.join(", ")}</p>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <p>${professionalDataObj.education || "Not provided"}</p>
+        </div>
+        <div>
+          <h3>Certifications</h3>
+          <p>${professionalDataObj.certifications || "Not provided"}</p>
+        </div>
+      </div>
+    </div>`;
             }
             else {
-                output.innerHTML = "<p class=\"warning\">Please fill out all fields.</p>";
+                output.innerHTML = `<p class="warning">Please fill out all fields.</p>`;
             }
         });
     }
